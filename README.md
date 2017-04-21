@@ -1,6 +1,6 @@
 # AirPorts
 
-* The swift 3.0 project is built as per the requirements, an additional search feature included. 
+* The swift 3.0 project allow downloading list of Airports and store locally with search feature. 
 * The application uses functional reactive programming using RxSwift
 * The data persistence is done using realm
 * The app uses auto layout and manual layout 
