@@ -25,7 +25,7 @@ final class AirPortDetailViewModel {
 
     var timeZone: String {
         get {
-            return airPort.timezone.isEmpty ? "Not available" : airPort.timezone
+            return "Not available"//airPort.timezone.isEmpty ? "Not available" : airPort.timezone
         }
     }
 

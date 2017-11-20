@@ -10,7 +10,7 @@ import RealmSwift
 import RxSwift
 import RxCocoa
 
-final class AirPortListVieModel {
+final class AirPortListViewModel {
 
     let dbKey = "kLocalDBAvailable"
     lazy var localDB = LocalDB()
@@ -21,7 +21,7 @@ final class AirPortListVieModel {
     func wireRX() {
         searchText.asObservable().flatMapLatest { searchString -> Observable<[AirPort]> in
             return self.findAirports(searchQuery: searchString!)
-            }.bindTo(airPorts).addDisposableTo(disposeBag)
+            }.bind(to: airPorts).disposed(by: disposeBag)
     }
     
     func hasLoocalDB()->Bool {

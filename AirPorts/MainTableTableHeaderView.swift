@@ -14,7 +14,7 @@ class MainTableTableHeaderView: UITableViewHeaderFooterView {
     lazy var airPort: UILabel = {
         let label = UILabel()
         let fontSize: CGFloat = UIDevice.isPad() ? 22 : 18
-        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightMedium)
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.medium)
         label.textColor = UIColor.white
         label.text = "Airport"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +24,7 @@ class MainTableTableHeaderView: UITableViewHeaderFooterView {
     lazy var country: UILabel = {
         let label = UILabel()
         let fontSize: CGFloat = UIDevice.isPad() ? 18 : 16
-        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightMedium)
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.medium)
         label.textColor = UIColor.gray
         label.textAlignment = .right
         label.textColor = UIColor.white

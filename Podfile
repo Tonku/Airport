@@ -8,8 +8,8 @@ target 'AirPorts' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxOptional'
-  pod 'RealmSwift'
-  pod 'Alamofire'
+  pod 'RealmSwift', '~> 3.0.2'
+  pod 'Alamofire', '~> 4.5'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'Moya'
 

@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
     private var keyboardHeight = 0
     private let searchbarHeight = 44
     let disposeBag = DisposeBag()
-    let viewModel = AirPortListVieModel()
+    let viewModel = AirPortListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,7 @@ class MainViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
-    func keyboardWillAppear(notification: NSNotification) {
+    @objc func keyboardWillAppear(notification: NSNotification) {
         if let userInfo = notification.userInfo,
             let keyboardRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             keyboardHeight  = Int(keyboardRect.height)
@@ -94,7 +94,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    func keyboardDidDisappear(notification: NSNotification) {
+    @objc func keyboardDidDisappear(notification: NSNotification) {
         keyboardHeight = 0
         setupLayout()
     }
@@ -105,13 +105,13 @@ class MainViewController: UIViewController {
             .filterNil()
             .debounce(0.2, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .bindTo(viewModel.searchText)
-            .addDisposableTo(disposeBag)
+            .bind(to: viewModel.searchText)
+            .disposed(by: disposeBag)
 
-        viewModel.airPorts.asObservable().bindTo(tableView.rx.items(cellIdentifier: self.kCellReuseID, cellType: MainTableViewCell.self)) { (row, element, cell) in
+        viewModel.airPorts.asObservable().bind(to: tableView.rx.items(cellIdentifier: self.kCellReuseID, cellType: MainTableViewCell.self)) { (row, element, cell) in
             cell.airPort.text = element.display_name
             cell.country.text = element.country?.display_name }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             if self?.searchBar.isFirstResponder == true {
@@ -122,7 +122,7 @@ class MainViewController: UIViewController {
                 viewViewController.detailVieModel = AirPortDetailViewModel(airPort: airPort)
                 self?.navigationController?.pushViewController(viewViewController, animated: true)
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {

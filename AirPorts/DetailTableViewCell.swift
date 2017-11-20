@@ -13,7 +13,7 @@ class DetailTableViewCell: UITableViewCell {
     lazy var keyLabel: UILabel = {
         let label = UILabel()
         let fontSize: CGFloat = UIDevice.isPad() ? 22 : 18
-        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightMedium)
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.gray
         return label
@@ -22,7 +22,7 @@ class DetailTableViewCell: UITableViewCell {
     lazy var valueLabel: UILabel = {
         let label = UILabel()
         let fontSize: CGFloat = UIDevice.isPad() ? 18 : 16
-        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightMedium)
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.medium)
         label.textColor = UIColor.gray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right

@@ -43,9 +43,9 @@ final class APIService {
                 completion(nil, AppError.httpError(moyaResponse.statusCode))
             case let .failure(error):
                 switch error {
-                case let .underlying(uError) where uError._code == NSURLErrorNotConnectedToInternet:
+                case let .underlying(uError) where uError.0._code == NSURLErrorNotConnectedToInternet:
                     completion(nil, AppError.noInternetConnection)
-                case let .underlying(uError) where uError._code == NSURLErrorTimedOut:
+                case let .underlying(uError) where uError.0._code == NSURLErrorTimedOut:
                     completion(nil, AppError.requestTimeout)
                 default:
                     completion(nil, AppError.unknownError)

@@ -13,7 +13,7 @@ class MainTableViewCell: UITableViewCell {
     lazy var airPort: UILabel = {
         let label = UILabel()
         let fontSize: CGFloat = UIDevice.isPad() ? 22 : 18
-        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightMedium)
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -21,7 +21,7 @@ class MainTableViewCell: UITableViewCell {
     lazy var country: UILabel = {
         let label = UILabel()
         let fontSize: CGFloat = UIDevice.isPad() ? 18 : 16
-        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightMedium)
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.medium)
         label.textColor = UIColor.gray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right

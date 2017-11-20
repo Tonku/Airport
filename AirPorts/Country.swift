@@ -11,7 +11,7 @@ import RealmSwift
 
 class Country: Object {
     
-    dynamic var code: String = ""
-    dynamic var display_name: String = ""
+    @objc dynamic var code: String = ""
+    @objc dynamic var display_name: String = ""
 
 }

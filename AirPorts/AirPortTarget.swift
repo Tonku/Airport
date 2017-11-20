@@ -27,7 +27,7 @@ extension AirPortTarget {
         return .get
     }
     
-    var parameters: [String: Any]? {
+    var headers: [String: String]? {
         return nil
     }
     
@@ -44,7 +44,7 @@ extension AirPortTarget {
     
     var task: Task {
         get {
-            return .request
+            return .requestPlain
         }
     }
     
